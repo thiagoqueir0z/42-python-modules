@@ -8,7 +8,7 @@ class Plant:
         self.age = age
 
 
-def ft_garden_data_organizer() -> None:
+def ft_garden_data() -> None:
     """Creates plant instances and displays their information."""
     print("=== Garden Plant Registry ===")
     rose = Plant("rose", 25, 30)
@@ -21,4 +21,4 @@ def ft_garden_data_organizer() -> None:
 
 
 if __name__ == "__main__":
-    ft_garden_data_organizer()
+    ft_garden_data()
