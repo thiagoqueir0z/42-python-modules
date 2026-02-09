@@ -44,7 +44,7 @@ class Tree(Plant):
 
     def produce_shade(self) -> None:
         """Specific behavior for Trees."""
-        shade = 78 # Apenas para a sair igual ao exemplo
+        shade = 78  # Apenas para a sair igual ao exemplo
         print(f"{self.name} provides {shade} square meters of shade")
 
 
