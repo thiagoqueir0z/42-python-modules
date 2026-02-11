@@ -17,7 +17,7 @@ def transform_data() -> None:
         {"item": "herb", "rarity": "rare"}
     ]
 
-    print("=== Data Alchemist Transformation ===")
+    print("=== Data Alchemist Transformation ===\n")
 
     high_tier = [p.upper() for p, s in zip(players, scores) if s > 1000]
     print(f"High-tier players (uppercase): {high_tier}")
@@ -28,7 +28,11 @@ def transform_data() -> None:
     player_stats = {p: s for p, s in zip(players, scores)}
     print(f"Player stats map: {player_stats}")
 
-    boosted_stats = {p: int(s * 1.1) for p, s in player_stats.items() if s < 1000}
+    boosted_stats = {
+        p: int(s * 1.1)
+        for p, s in player_stats.items()
+        if s < 1000
+    }
     print(f"Boosted stats (<1000 points + 10%): {boosted_stats}")
 
     labels = ["Pro" if s >= 1000 else "Noob" for s in scores]

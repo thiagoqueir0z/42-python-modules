@@ -95,4 +95,4 @@ def process_stream() -> None:
 
 
 if __name__ == "__main__":
-    process_stream()    
+    process_stream()
