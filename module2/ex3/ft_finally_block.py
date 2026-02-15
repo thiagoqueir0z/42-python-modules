@@ -18,7 +18,6 @@ def water_plants(plant_list: list) -> None:
     except ValueError as error:
         print(f"Error: {error}")
     finally:
-        # This block must always run to simulate closing a real valve
         print("Closing watering system (cleanup)")
 
 
@@ -26,12 +25,10 @@ def test_watering_system() -> None:
     """Demonstrate system behavior with normal and erroneous inputs."""
     print("=== Garden Watering System ===")
 
-    # Scenario 1: Normal watering
     print("\nTesting normal watering...")
     good_plants = ["tomato", "lettuce", "carrots"]
     water_plants(good_plants)
 
-    # Scenario 2: Error in the list
     print("\nTesting with error...")
     bad_plants = ["tomato", None]
     water_plants(bad_plants)

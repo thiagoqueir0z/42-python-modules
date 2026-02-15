@@ -5,8 +5,7 @@ def analyze_achievements() -> None:
     """
     Perform set operations to analyze and compare player achievements.
 
-    Demonstrates union, intersection, and difference to generate analytics
-    matching the PixelMetrics 3000 requirements.
+    Demonstrates union, intersection, and difference.
     """
     alice = {'first_kill', 'level_10', 'treasure_hunter', 'speed_demon'}
     bob = {'first_kill', 'level_10', 'boss_slayer', 'collector'}
@@ -15,7 +14,7 @@ def analyze_achievements() -> None:
         'speed_demon', 'perfectionist'
     }
 
-    print("=== Achievement Tracker System ===")
+    print("=== Achievement Tracker System ===\n")
     print(f"Player alice achievements: {alice}")
     print(f"Player bob achievements: {bob}")
     print(f"Player charlie achievements: {charlie}")
@@ -29,17 +28,19 @@ def analyze_achievements() -> None:
 
     # Intersection: Common to all three players
     common_to_all = alice & bob & charlie
-    print(f"Common to all players: {common_to_all}")
+    print(f"\nCommon to all players: {common_to_all}")
 
-    # Rare achievements: Finding tags that appear in exactly one set
-    # Logic: (A-B-C) | (B-A-C) | (C-A-B)
-    rare = (alice - bob - charlie) | (bob - alice - charlie) | (charlie - alice - bob)
+    rare = (
+            (alice - bob - charlie) |
+            (bob - alice - charlie) |
+            (charlie - alice - bob)
+    )
     print(f"Rare achievements (1 player): {rare}")
 
     # Comparison: Alice and Bob
-    print(f"Alice vs Bob common: {alice & bob}")
-    print(f"Alice unique: {alice - bob}")
-    print(f"Bob unique: {bob - alice}")
+    print(f"\nAlice vs Bob common: {alice.intersection(bob)}")
+    print(f"Alice unique: {alice.difference(bob)}")
+    print(f"Bob unique: {bob.difference(alice)}")
 
 
 if __name__ == "__main__":

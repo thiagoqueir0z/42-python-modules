@@ -103,7 +103,7 @@ def ft_garden_analytics() -> None:
 
     valid = GardenManager.validate_height(alice.garden[0].height)
     print(f"Height validation test: {valid}")
-    # Scores figurativos para bater com a saída do PDF
+    # Scores figurativos para bater com a saída do Subject
     print("Garden scores - Alice: 218, Bob: 92")
     print(f"Total gardens managed: {GardenManager.get_managed_count()}")
 

@@ -1,36 +1,52 @@
-"""Module to track 3D positions using immutable tuples."""
+"""Module to track game positions using 3D coordinate tuples."""
 
-import sys
+import math
 
 
-def track_position(args: list[str]) -> None:
-    """
-    Process 3D coordinates and simulate a movement.
+def track_position() -> None:
+    """Execute coordinate tracking and distance calculations."""
+    print("=== Game Coordinate System ===")
 
-    Args:
-        args: List of strings representing X, Y, Z coordinates.
-    """
-    print("=== Position Tracker ===")
+    checkpoint: tuple[int, int, int] = (0, 0, 0)
+    point: tuple[int, int, int] = (10, 20, 5)
 
-    if len(args) != 3:
-        print("Error: Exactly 3 coordinates (X Y Z) are required.")
-        return
+    print(f"\nPosition created: {point}")
+
+    distance = math.sqrt(point[0]**2 + point[1]**2 + point[2]**2)
+    print(f"Distance between {checkpoint} and {point}: {distance:.2f}")
+
+    raw_coords = "3,4,0"
+    print(f"\nParsing coordinates: \"{raw_coords}\"")
 
     try:
-        initial_pos = (float(args[0]), float(args[1]), float(args[2]))
-    except ValueError:
-        print("Error: All coordinates must be numeric values.")
-        return
+        parsed_list = [int(n) for n in raw_coords.split(",")]
+        parsed_point = tuple(parsed_list)
 
-    x, y, z = initial_pos
+        print(f"Parsed position: {parsed_point}")
 
-    offset = 10.0
-    new_pos = (x + offset, y + offset, z + offset)
+        dist_parsed = math.sqrt(sum(coord**2 for coord in parsed_point))
+        print(
+            f"Distance between {checkpoint} and {parsed_point}: "
+            f"{dist_parsed:.1f}"
+        )
 
-    print(f"Initial Position: {initial_pos}")
-    print(f"Movement Offset: +{offset} to all axes")
-    print(f"New Position: {new_pos}")
+    except ValueError as e:
+        print(f"Error parsing coordinates: {e}")
+
+    invalid_coords = "abc,def,ghi"
+    print(f"\nParsing invalid coordinates: \"{invalid_coords}\"")
+
+    try:
+        [int(n) for n in invalid_coords.split(",")]
+    except ValueError as e:
+        print(f"Error parsing coordinates: {e}")
+        print(f"Error details - Type: ValueError, Args: {e.args}")
+
+    print("\nUnpacking demonstration:")
+    x, y, z = parsed_point
+    print(f"Player at x={x}, y={y}, z={z}")
+    print(f"Coordinates: X={x}, Y={y}, Z={z}")
 
 
 if __name__ == "__main__":
-    track_position(sys.argv[1:])
+    track_position()
