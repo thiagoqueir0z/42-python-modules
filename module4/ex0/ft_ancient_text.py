@@ -6,8 +6,12 @@ def recover_text(filename: str) -> None:
     file = None
     try:
         file = open(filename, 'r')
-        print("--- Recovered Fragment ---")
+        print("=== CYBER ARCHIVES - DATA RECOVERY SYSTEM ===\n")
+        print(f"Accessing Storage Vault: {filename}")
+        print("Connection established...\n")
+        print("RECOVERED DATA:")
         print(file.read())
+        print("\nData recovery complete. Storage unit disconnected.")
     except FileNotFoundError:
         print(f"Error: Vault '{filename}' not found.")
     except Exception as error_message:
