@@ -19,7 +19,7 @@ def process_commands() -> None:
         print("No arguments provided!")
     else:
         print(f"Arguments received: {argc - 1}")
-        for i, arg in enumerate(sys.argv, start=1):
+        for i, arg in enumerate(sys.argv[1:], start=1):
             print(f"Argument {i}: {arg}")
 
     print(f"Program name: {script_name}")
